@@ -1,6 +1,6 @@
-import express from "express";
-import cors from "cors";
-import { routes } from "./routes";
+import express from 'express';
+import cors from 'cors';
+import { routes } from './routes';
 
 const app = express();
 
@@ -10,4 +10,8 @@ app.use(routes);
 
 app.listen(process.env.PORT, () => {
   console.log(`HTTP server running on port ${process.env.PORT}!`);
+});
+
+app.get('/ping', (req, res) => {
+  res.json({ message: 'pong' });
 });
